@@ -30,6 +30,10 @@
   JNIEXPORT return_type JNICALL                      \
       Java_com_google_cardboard_CardboardWrapper_##method_name
 
+#define JNI_METHOD_Main_Activity(return_type, method_name) \
+  JNIEXPORT return_type JNICALL                      \
+      Java_com_google_cardboard_MainActivity_##method_name
+
 
 namespace {
 
@@ -101,4 +105,11 @@ JNI_METHOD_WRAPPER(void, nativeSwitchViewer)
 (JNIEnv* /*env*/, jobject /*obj*/, jlong native_app) {
   native(native_app)->SwitchViewer();
 }
+
+JNI_METHOD_Main_Activity(jlong, nativeOnCreate)
+(JNIEnv* /*env*/, jobject obj, jobject asset_mgr) {
+  return jptr(new ndk_hello_cardboard::HelloCardboardApp(javaVm, obj, asset_mgr));
+}
+
+
 }  // extern "C"

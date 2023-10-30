@@ -9,15 +9,9 @@ public class CardboardWrapper extends AppCompatActivity {
     static {
         System.loadLibrary("cardboard_jni");
     }
-
-    public long OnCreate(AssetManager getAssets){
-        return nativeOnCreate(getAssets());
-    }
-
     public void OnDestroy(long nativeApp){
         nativeOnDestroy(nativeApp);
     }
-
     public void OnSurfaceCreated(long nativeApp){
         nativeOnSurfaceCreated(nativeApp);
     }
@@ -40,7 +34,7 @@ public class CardboardWrapper extends AppCompatActivity {
         nativeSetScreenParams(nativeApp,width,height);
     }
 
-    private native long nativeOnCreate(AssetManager assetManager);
+//    private native long nativeOnCreate(AssetManager assetManager);
 
     private native void nativeOnDestroy(long nativeApp);
 
