@@ -17,6 +17,7 @@ package com.google.cardboard;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
@@ -72,10 +73,8 @@ public class VrActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
   public void onCreate(Bundle savedInstance) {
     super.onCreate(savedInstance);
 
-//    nativeApp = nativeOnCreate(getAssets());
+    nativeApp = nativeOnCreate(getAssets());
     cardboardWrapper = new CardboardWrapper();
-    nativeApp =nativeOnCreate(getAssets());
-
     setContentView(R.layout.activity_vr);
     glView = findViewById(R.id.surface_view);
     glView.setEGLContextClientVersion(2);

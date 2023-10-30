@@ -10,9 +10,9 @@ public class CardboardWrapper extends AppCompatActivity {
         System.loadLibrary("cardboard_jni");
     }
 
-//    public long OnCreate(AssetManager getAssets()){
-//        return nativeOnCreate(getAssets());
-//    }
+    public long OnCreate(AssetManager getAssets){
+        return nativeOnCreate(getAssets());
+    }
 
     public void OnDestroy(long nativeApp){
         nativeOnDestroy(nativeApp);

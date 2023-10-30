@@ -30,6 +30,7 @@
   JNIEXPORT return_type JNICALL                      \
       Java_com_google_cardboard_CardboardWrapper_##method_name
 
+
 namespace {
 
 inline jlong jptr(ndk_hello_cardboard::HelloCardboardApp* native_app) {
@@ -55,48 +56,6 @@ JNI_METHOD(jlong, nativeOnCreate)
 (JNIEnv* /*env*/, jobject obj, jobject asset_mgr) {
   return jptr(new ndk_hello_cardboard::HelloCardboardApp(javaVm, obj, asset_mgr));
 }
-
-JNI_METHOD(void, nativeOnDestroy)
-(JNIEnv* /*env*/, jobject /*obj*/, jlong native_app) {
-  delete native(native_app);
-}
-
-JNI_METHOD(void, nativeOnSurfaceCreated)
-(JNIEnv* env, jobject /*obj*/, jlong native_app) {
-  native(native_app)->OnSurfaceCreated(env);
-}
-
-JNI_METHOD(void, nativeOnDrawFrame)
-(JNIEnv* /*env*/, jobject /*obj*/, jlong native_app) {
-  native(native_app)->OnDrawFrame();
-}
-
-JNI_METHOD(void, nativeOnTriggerEvent)
-(JNIEnv* /*env*/, jobject /*obj*/, jlong native_app) {
-  native(native_app)->OnTriggerEvent();
-}
-
-JNI_METHOD(void, nativeOnPause)
-(JNIEnv* /*env*/, jobject /*obj*/, jlong native_app) {
-  native(native_app)->OnPause();
-}
-
-JNI_METHOD(void, nativeOnResume)
-(JNIEnv* /*env*/, jobject /*obj*/, jlong native_app) {
-  native(native_app)->OnResume();
-}
-
-JNI_METHOD(void, nativeSetScreenParams)
-(JNIEnv* /*env*/, jobject /*obj*/, jlong native_app, jint width, jint height) {
-  native(native_app)->SetScreenParams(width, height);
-}
-
-JNI_METHOD(void, nativeSwitchViewer)
-(JNIEnv* /*env*/, jobject /*obj*/, jlong native_app) {
-  native(native_app)->SwitchViewer();
-}
-
-// methods for the Wrapper class:
 
 JNI_METHOD_WRAPPER(jlong, nativeOnCreate)
 (JNIEnv* /*env*/, jobject obj, jobject asset_mgr) {
@@ -142,5 +101,4 @@ JNI_METHOD_WRAPPER(void, nativeSwitchViewer)
 (JNIEnv* /*env*/, jobject /*obj*/, jlong native_app) {
   native(native_app)->SwitchViewer();
 }
-
 }  // extern "C"
