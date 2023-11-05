@@ -7,7 +7,7 @@ By now, you must be familiar with Cardboard NDK and how my wrapper function work
 Before you begin, make sure you have the following prerequisites:
 
 - Know how JNI works.( Though the Wrapper class saves you the hassle of creating your own JNI bridge, it's a necessity for understanding the internal working of the app. Recommended sources would be [Java for Engineers](https://www.youtube.com/watch?v=CwwFp4qhQyw&list=PLWchVAowvRxCc4N5F5RTJnDV150Vf7ouf) and [Android NDK Documentation](https://developer.android.com/ndk).)
-- An understanding of how my wrapper functions work would help in customising your own app and creating your own Wrapper functions as and when necesssary.[here](https://github.com/ranaaditya/processing-cardboard-android-poc/blob/example-app/cardboard-1.22.0/tutorials.md)
+- An understanding of how my wrapper functions work would help in customising your own app and creating your own Wrapper functions as and when necesssary.[here](https://github.com/ranaaditya/processing-cardboard-android-poc/blob/example-app/cardboard-1.22.0/TUTORIALS.md)
 - Some basic understanding about VR apps and their working.
 
 ## About the Sample App
